@@ -54,3 +54,11 @@ This project demonstrates core data engineering responsibilities: loading raw da
 8. Run data quality checks.
 9. Schedule the workflow with Airflow.
 10. Document the full project in GitHub.
+
+## Project Status
+
+Current status: **Week 1 Complete — SQL and PostgreSQL Foundation**
+
+The project currently demonstrates the foundation of a data engineering workflow: loading raw data into PostgreSQL, querying it with SQL, validating data quality, and documenting the process.
+
+Next step: **Week 2 — Python ETL**
