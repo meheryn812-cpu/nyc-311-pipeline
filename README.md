@@ -32,6 +32,16 @@ The project uses NYC 311 Service Request data.
 8. Schedule the workflow with Airflow.
 9. Document the project in GitHub.
 
+## Python ETL Pipeline
+
+The project includes a Python ETL pipeline that runs the workflow from API extraction to PostgreSQL loading.
+
+Main pipeline command:
+
+```bash
+python run_pipeline.py
+```
+
 ## Data Quality Checks
 
 The project includes SQL-based data quality checks for row counts, missing primary keys, duplicate records, missing dates, invalid date order, missing boroughs, missing coordinates, status values, complaint type distribution, agency distribution, and response time calculations.
@@ -55,18 +65,11 @@ This project demonstrates core data engineering responsibilities: loading raw da
 9. Schedule the workflow with Airflow.
 10. Document the full project in GitHub.
 
+
 ## Project Status
 
-Current status: **Week 1 Complete — SQL and PostgreSQL Foundation**
+Current status: **Week 2 Complete — Python ETL Pipeline**
 
-The project currently demonstrates the foundation of a data engineering workflow: loading raw data into PostgreSQL, querying it with SQL, validating data quality, and documenting the process.
+The project now includes a repeatable Python ETL workflow that extracts NYC 311 data from the API, saves a raw file, cleans and standardizes the data, loads it into PostgreSQL, and logs pipeline activity.
 
-Next step: **Week 2 — Python ETL**
-## Python ETL Pipeline
-
-The project now includes a Python ETL pipeline that runs the full workflow from API extraction to PostgreSQL loading.
-
-Main pipeline command:
-
-```bash
-python run_pipeline.py
+Next step: **Week 3 — Data Modeling and Staging Tables**
