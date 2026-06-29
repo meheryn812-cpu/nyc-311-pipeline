@@ -62,3 +62,11 @@ Current status: **Week 1 Complete — SQL and PostgreSQL Foundation**
 The project currently demonstrates the foundation of a data engineering workflow: loading raw data into PostgreSQL, querying it with SQL, validating data quality, and documenting the process.
 
 Next step: **Week 2 — Python ETL**
+## Python ETL Pipeline
+
+The project now includes a Python ETL pipeline that runs the full workflow from API extraction to PostgreSQL loading.
+
+Main pipeline command:
+
+```bash
+python run_pipeline.py
