@@ -74,11 +74,13 @@ Current dimension tables:
 - `dim_borough`
 - `dim_complaint_type`
 
-Planned fact table:
+Current fact table:
 
 - `fact_service_requests`
 
-The dimension tables store unique descriptive values for agencies, boroughs, and complaint types. These tables will connect to the future fact table using ID fields.
+The dimension tables store descriptive values for agencies, boroughs, and complaint types. The fact table stores each 311 service request event and connects to the dimension tables using ID fields.
+
+Together, these tables create a star schema that supports analysis by agency, borough, complaint type, status, date, and response time.
 
 
 ## Data Quality Checks
