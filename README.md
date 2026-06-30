@@ -87,7 +87,23 @@ Together, these tables create a star schema that supports analysis by agency, bo
 
 The project includes SQL-based data quality checks for row counts, missing primary keys, duplicate records, missing dates, invalid date order, missing boroughs, missing coordinates, status values, complaint type distribution, agency distribution, and response time calculations.
 
+## Model Quality Checks
+
+The project includes SQL checks to validate the dimensional model.
+
+Model quality checks include:
+
+- Staging vs. fact row count comparison
+- Missing request IDs
+- Duplicate request IDs
+- Missing foreign keys
+- Broken joins between fact and dimension tables
+- Response time validation
+- Status distribution
+- Final business summary queries by borough, agency, and complaint type
+
 ## Expected Output
+
 The final output will include analytics-ready tables showing service request volume by borough, 
 agency, complaint type, status, and response time. 
 
