@@ -66,14 +66,19 @@ The staging table is validated using SQL checks for row counts, missing request 
 
 ### Mart Layer
 
-The mart layer will contain analytics-ready tables for reporting and analysis.
+The mart layer contains analytics-ready tables for reporting and analysis.
 
-Planned tables:
+Current dimension tables:
 
 - `dim_agency`
 - `dim_borough`
 - `dim_complaint_type`
+
+Planned fact table:
+
 - `fact_service_requests`
+
+The dimension tables store unique descriptive values for agencies, boroughs, and complaint types. These tables will connect to the future fact table using ID fields.
 
 
 ## Data Quality Checks
