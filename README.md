@@ -62,6 +62,8 @@ Main table:
 
 - `stg_311_requests`
 
+The staging table is validated using SQL checks for row counts, missing request IDs, duplicate request IDs, missing dates, invalid date order, response time values, borough values, status values, missing complaint types, missing agencies, and missing coordinates.
+
 ### Mart Layer
 
 The mart layer will contain analytics-ready tables for reporting and analysis.
