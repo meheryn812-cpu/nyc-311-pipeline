@@ -42,6 +42,38 @@ Main pipeline command:
 python run_pipeline.py
 ```
 
+## Data Modeling Layers
+
+The project uses a layered data modeling approach.
+
+### Raw Layer
+
+The raw layer stores source data loaded from the NYC 311 CSV/API process.
+
+Main table:
+
+- `raw_311_requests`
+
+### Staging Layer
+
+The staging layer cleans and standardizes raw data before analytics modeling.
+
+Main table:
+
+- `stg_311_requests`
+
+### Mart Layer
+
+The mart layer will contain analytics-ready tables for reporting and analysis.
+
+Planned tables:
+
+- `dim_agency`
+- `dim_borough`
+- `dim_complaint_type`
+- `fact_service_requests`
+
+
 ## Data Quality Checks
 
 The project includes SQL-based data quality checks for row counts, missing primary keys, duplicate records, missing dates, invalid date order, missing boroughs, missing coordinates, status values, complaint type distribution, agency distribution, and response time calculations.
