@@ -42,9 +42,18 @@ Main pipeline command:
 python run_pipeline.py
 ```
 
-## Data Modeling Layers
+## Data Model
 
-The project uses a layered data modeling approach.
+The project uses a layered data model that moves data from raw ingestion to analytics-ready tables.
+
+```text
+raw_311_requests
+→ stg_311_requests
+→ dim_agency
+→ dim_borough
+→ dim_complaint_type
+→ fact_service_requests
+```
 
 ### Raw Layer
 
@@ -136,8 +145,20 @@ This project demonstrates core data engineering responsibilities: loading raw da
 
 ## Project Status
 
-Current status: **Week 2 Complete — Python ETL Pipeline**
+Current status: **Week 3 Complete — Data Modeling and Staging Tables**
 
-The project now includes a repeatable Python ETL workflow that extracts NYC 311 data from the API, saves a raw file, cleans and standardizes the data, loads it into PostgreSQL, and logs pipeline activity.
+TWeek 3 focused on building an analytics-ready PostgreSQL data model.
 
-Next step: **Week 3 — Data Modeling and Staging Tables**
+Completed work includes:
+
+- Created a cleaned staging table from raw NYC 311 records
+- Built dimension tables for agency, borough, and complaint type
+- Built a fact table with one row per service request
+- Added primary key and foreign key relationships
+- Created indexes to support common query patterns
+- Validated the model with SQL quality checks
+- Documented tables, columns, relationships, metrics, and known data quality notes
+
+The final Week 3 model supports analysis by borough, agency, complaint type, status, date, and response time.
+
+Next step: **Week 4 — **
