@@ -102,6 +102,17 @@ Model quality checks include:
 - Status distribution
 - Final business summary queries by borough, agency, and complaint type
 
+## Data Dictionary
+
+The project includes a data dictionary that documents the raw, staging, dimension, and fact tables used in the NYC 311 data model.
+
+Data dictionary file:
+
+- `docs/data_dictionary.md`
+
+The data dictionary explains table purpose, column definitions, relationships, key metrics, and known data quality notes.
+
+
 ## Expected Output
 
 The final output will include analytics-ready tables showing service request volume by borough, 
