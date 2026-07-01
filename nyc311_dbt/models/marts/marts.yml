@@ -66,3 +66,74 @@ models:
 
       - name: created_at
         description: Timestamp when the dimension record was created.
+
+  - name: fact_service_requests
+    description: Fact table containing one row per NYC 311 service request.
+    columns:
+      - name: request_id
+        description: Unique identifier for each NYC 311 service request.
+        tests:
+          - not_null
+          - unique
+
+      - name: created_date
+        description: Date and time when the service request was created.
+        tests:
+          - not_null
+
+      - name: closed_date
+        description: Date and time when the service request was closed.
+
+      - name: status
+        description: Current status of the service request.
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - CLOSED
+                  - OPEN
+                  - IN PROGRESS
+                  - ASSIGNED
+                  - STARTED
+                  - PENDING
+
+      - name: response_hours
+        description: Number of hours between service request creation and closure.
+
+      - name: latitude
+        description: Latitude coordinate of the service request location.
+
+      - name: longitude
+        description: Longitude coordinate of the service request location.
+
+      - name: agency_id
+        description: Foreign key to the agency dimension.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_agency')
+                field: agency_id
+
+      - name: borough_id
+        description: Foreign key to the borough dimension. May be null when the source record has no borough value.
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_borough')
+                field: borough_id
+
+      - name: complaint_type_id
+        description: Foreign key to the complaint type dimension.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_complaint_type')
+                field: complaint_type_id
+
+      - name: raw_loaded_at
+        description: Timestamp when the raw record was loaded into PostgreSQL.
+
+      - name: fact_created_at
+        description: Timestamp when the dbt fact table record was created. 

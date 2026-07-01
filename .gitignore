@@ -4,3 +4,6 @@
 __pycache__/
 *.pyc
 logs/*.log
+nyc311_dbt/target/
+nyc311_dbt/logs/
+nyc311_dbt/dbt_packages/

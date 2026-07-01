@@ -51,15 +51,19 @@ The project includes a dbt transformation layer located in:
 The dbt layer currently includes:
 
 - A source definition for `public.raw_311_requests`
-- A staging model: `stg_311_requests`
+- A staging model:
+  - `stg_311_requests`
 - Dimension models:
   - `dim_agency`
   - `dim_borough`
   - `dim_complaint_type`
+- A fact model:
+  - `fact_service_requests`
 - Column documentation
-- Basic dbt tests for uniqueness, not-null checks, and accepted borough values
+- dbt tests for uniqueness, not-null checks, accepted values, and model relationships
+- Generated dbt documentation artifacts
 
-The dbt models are built in the `dbt_dev` schema and transform raw NYC 311 records into cleaned, analytics-ready models.
+The dbt models are built in the `dbt_dev` schema and transform raw NYC 311 records into cleaned, analytics-ready staging, dimension, and fact models.
 
 ## Data Model
 
