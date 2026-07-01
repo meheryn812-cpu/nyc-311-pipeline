@@ -1,0 +1,90 @@
+version: 2
+
+sources:
+  - name: nyc311
+    database: nyc_311_pipeline
+    schema: public
+    tables:
+      - name: raw_311_requests
+        description: Raw NYC 311 service request records loaded into PostgreSQL.
+        columns:
+          - name: unique_key
+            description: Unique identifier for each NYC 311 service request.
+            tests:
+              - not_null
+              - unique
+          - name: created_date
+            description: Date and time when the service request was created.
+            tests:
+              - not_null
+          - name: closed_date
+            description: Date and time when the service request was closed.
+          - name: agency
+            description: Agency code responsible for the request.
+          - name: agency_name
+            description: Full agency name.
+          - name: complaint_type
+            description: Complaint or service request category.
+          - name: descriptor
+            description: More detailed complaint description.
+          - name: status
+            description: Current status of the service request.
+          - name: borough
+            description: NYC borough associated with the request.
+          - name: latitude
+            description: Latitude coordinate.
+          - name: longitude
+            description: Longitude coordinate.
+          - name: raw_loaded_at
+            description: Timestamp when the record was loaded into PostgreSQL.
+
+models:
+  - name: stg_311_requests
+    description: Cleaned and standardized dbt staging model for NYC 311 service requests.
+    columns:
+      - name: request_id
+        description: Unique identifier for each service request.
+        tests:
+          - not_null
+          - unique
+
+      - name: created_date
+        description: Date and time when the service request was created.
+        tests:
+          - not_null
+
+      - name: closed_date
+        description: Date and time when the service request was closed.
+
+      - name: agency
+        description: Standardized agency code.
+
+      - name: agency_name
+        description: Cleaned agency name.
+
+      - name: complaint_type
+        description: Cleaned complaint type.
+
+      - name: descriptor
+        description: Cleaned complaint descriptor.
+
+      - name: status
+        description: Standardized request status.
+
+      - name: borough
+        description: Standardized borough value.
+
+      - name: latitude
+        description: Latitude coordinate.
+
+      - name: longitude
+        description: Longitude coordinate.
+
+      - name: response_hours
+        description: Hours between request creation and closure.
+
+      - name: raw_loaded_at
+        description: Timestamp when the record was loaded into the raw table.
+
+      - name: staged_at
+        description: Timestamp when the dbt staging model was created.

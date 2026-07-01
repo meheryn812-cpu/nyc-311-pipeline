@@ -42,6 +42,21 @@ Main pipeline command:
 python run_pipeline.py
 ```
 
+## dbt Transformation Layer
+
+The project includes a dbt transformation layer located in:
+
+- `nyc311_dbt/`
+
+The dbt layer currently includes:
+
+- A source definition for `public.raw_311_requests`
+- A staging model: `stg_311_requests`
+- Column documentation
+- Basic dbt tests for uniqueness and not-null checks
+
+The dbt staging model is built in the `dbt_dev` schema and transforms raw NYC 311 records into a cleaned staging model.
+
 ## Data Model
 
 The project uses a layered data model that moves data from raw ingestion to analytics-ready tables.
