@@ -1,0 +1,68 @@
+version: 2
+
+models:
+  - name: dim_agency
+    description: Dimension table containing unique NYC agency codes and agency names.
+    columns:
+      - name: agency_id
+        description: Surrogate key for the agency dimension.
+        tests:
+          - not_null
+          - unique
+
+      - name: agency
+        description: Agency code responsible for the service request.
+        tests:
+          - not_null
+
+      - name: agency_name
+        description: Full agency name.
+        tests:
+          - not_null
+
+      - name: created_at
+        description: Timestamp when the dimension record was created.
+
+  - name: dim_borough
+    description: Dimension table containing valid NYC borough values.
+    columns:
+      - name: borough_id
+        description: Surrogate key for the borough dimension.
+        tests:
+          - not_null
+          - unique
+
+      - name: borough
+        description: NYC borough name.
+        tests:
+          - not_null
+          - unique
+          - accepted_values:
+              arguments:
+                values:
+                  - BRONX
+                  - BROOKLYN
+                  - MANHATTAN
+                  - QUEENS
+                  - STATEN ISLAND
+
+      - name: created_at
+        description: Timestamp when the dimension record was created.
+
+  - name: dim_complaint_type
+    description: Dimension table containing unique NYC 311 complaint types.
+    columns:
+      - name: complaint_type_id
+        description: Surrogate key for the complaint type dimension.
+        tests:
+          - not_null
+          - unique
+
+      - name: complaint_type
+        description: Complaint or service request category.
+        tests:
+          - not_null
+          - unique
+
+      - name: created_at
+        description: Timestamp when the dimension record was created.

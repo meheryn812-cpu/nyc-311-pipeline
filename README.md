@@ -52,10 +52,14 @@ The dbt layer currently includes:
 
 - A source definition for `public.raw_311_requests`
 - A staging model: `stg_311_requests`
+- Dimension models:
+  - `dim_agency`
+  - `dim_borough`
+  - `dim_complaint_type`
 - Column documentation
-- Basic dbt tests for uniqueness and not-null checks
+- Basic dbt tests for uniqueness, not-null checks, and accepted borough values
 
-The dbt staging model is built in the `dbt_dev` schema and transforms raw NYC 311 records into a cleaned staging model.
+The dbt models are built in the `dbt_dev` schema and transform raw NYC 311 records into cleaned, analytics-ready models.
 
 ## Data Model
 
