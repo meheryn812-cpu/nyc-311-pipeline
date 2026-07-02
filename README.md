@@ -70,6 +70,20 @@ The dbt layer includes:
 
 The dbt models are built in the `dbt_dev` schema and transform raw NYC 311 records into cleaned, analytics-ready staging, dimension, and fact models.
 
+## Airflow Orchestration
+
+The project is being extended with Apache Airflow for workflow orchestration.
+
+Planned Airflow workflow:
+
+```text
+Python extract
+→ Python clean
+→ PostgreSQL load
+→ dbt run
+→ dbt test
+```
+
 ## Data Model
 
 The project uses a layered data model that moves data from raw ingestion to analytics-ready tables.
