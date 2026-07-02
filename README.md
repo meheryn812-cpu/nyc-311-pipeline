@@ -173,20 +173,28 @@ This project demonstrates core data engineering responsibilities: loading raw da
 
 ## Project Status
 
-Current status: **Week 3 Complete — Data Modeling and Staging Tables**
+Current status: **Week 4 Completion: dbt Transformation Layer**
 
-TWeek 3 focused on building an analytics-ready PostgreSQL data model.
+Week 4 focused on adding a dbt transformation layer to the NYC 311 pipeline.
 
 Completed work includes:
 
-- Created a cleaned staging table from raw NYC 311 records
-- Built dimension tables for agency, borough, and complaint type
-- Built a fact table with one row per service request
-- Added primary key and foreign key relationships
-- Created indexes to support common query patterns
-- Validated the model with SQL quality checks
-- Documented tables, columns, relationships, metrics, and known data quality notes
+- Created a dbt project inside `nyc311_dbt/`
+- Configured dbt to connect to PostgreSQL
+- Created a dbt source for `public.raw_311_requests`
+- Built a staging model: `stg_311_requests`
+- Built dimension models:
+  - `dim_agency`
+  - `dim_borough`
+  - `dim_complaint_type`
+- Built a fact model:
+  - `fact_service_requests`
+- Added source, model, and column documentation
+- Added dbt tests for not-null, unique, accepted values, and relationships
+- Generated and reviewed dbt documentation
+- Reviewed model lineage from raw source to analytics-ready fact table
+- Cleaned the dbt project structure for GitHub readiness
 
-The final Week 3 model supports analysis by borough, agency, complaint type, status, date, and response time.
+The dbt layer transforms raw NYC 311 data into cleaned, tested, analytics-ready staging, dimension, and fact models.
 
-Next step: **Week 4 — **
+
